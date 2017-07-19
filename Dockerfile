@@ -12,8 +12,12 @@ RUN apt update \
     && pip3 install awscli virtualenv Jinja2 \
     && pip3 install awsebcli==3.10.2 \
     && curl -LO https://releases.hashicorp.com/terraform/0.9.6/terraform_0.9.6_linux_amd64.zip \
+    && curl -LO https://releases.hashicorp.com/consul/0.8.5/consul_0.8.5_linux_amd64.zip \
+    && unzip consul_0.8.5_linux_amd64.zip \
     && unzip terraform_0.9.6_linux_amd64.zip \
     && mv terraform /usr/bin/ \
+    && mv consul /usr/bin/ \
+    && rm consul_0.8.5_linux_amd64.zip terraform_0.9.6_linux_amd64.zip \
     && chmod +x /usr/bin/terraform \
     && rm terraform_0.9.6_linux_amd64.zip
 
