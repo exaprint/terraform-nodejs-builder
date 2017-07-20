@@ -17,9 +17,9 @@ RUN apt update \
     && unzip terraform_0.9.6_linux_amd64.zip \
     && mv terraform /usr/bin/ \
     && mv consul /usr/bin/ \
-    && rm consul_0.8.5_linux_amd64.zip terraform_0.9.6_linux_amd64.zip \
     && chmod +x /usr/bin/terraform \
-    && rm terraform_0.9.6_linux_amd64.zip
+    && chmod +x /usr/bin/consul \
+    && rm consul_0.8.5_linux_amd64.zip terraform_0.9.6_linux_amd64.zip
 
 WORKDIR /app
 CMD sh build.sh
