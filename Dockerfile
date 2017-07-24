@@ -21,4 +21,4 @@ RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/reposit
       && chmod +x /usr/bin/consul \
       && rm consul_0.8.5_linux_amd64.zip terraform_0.9.11_linux_amd64.zip
 
-ENTRYPOINT /bin/sh
+ENTRYPOINT ["/bin/sh", "-c"]
