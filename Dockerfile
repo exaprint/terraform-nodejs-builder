@@ -1,5 +1,4 @@
 FROM alpine:3.6
-
 LABEL maintainer=webframeworks@manheim.com
 LABEL repo=rtaylor30/terraform-nodejs-builder
 
@@ -19,6 +18,13 @@ RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/reposit
       && mv consul /usr/bin/ \
       && chmod +x /usr/bin/terraform \
       && chmod +x /usr/bin/consul \
-      && rm consul_0.8.5_linux_amd64.zip terraform_0.9.11_linux_amd64.zip
+      && rm consul_0.8.5_linux_amd64.zip terraform_0.9.11_linux_amd64.zip \
+      && mkdir -p /home/builder \
+      && addgroup -g 82 -S builder \
+      && adduser -u 82 -D -S -G builder builder \
+      && chown -R builder:builder /home/builder
+
+USER builder
+ENV HOME=/home/builder
 
 ENTRYPOINT ["/bin/sh", "-c"]
