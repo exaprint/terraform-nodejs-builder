@@ -3,6 +3,8 @@ LABEL maintainer=webframeworks@manheim.com
 LABEL repo=rtaylor30/terraform-nodejs-builder
 
 RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories \
+      && apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main libuv \
+      && apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community nodejs-current-npm \
       && apk add --no-cache python3 python3-dev curl tar unzip zip git make ruby ruby-rdoc ruby-irb \
       && apk add --no-cache --force nodejs-current@edge nodejs-current-npm@edge \
       && gem install awssume --no-ri --no-rdoc \
