@@ -21,7 +21,7 @@ RUN echo "Install tfenv and terraform" \
     && ./tfenv use 0.11.15
 
 ENV PATH="/home/linuxbrew/.linuxbrew/Cellar/tfenv/2.2.2/versions/0.11.15:${PATH}"
-ENV HOME=/root
+ENV HOME=/home/circleci
 
 
 ENTRYPOINT ["/bin/bash"]
