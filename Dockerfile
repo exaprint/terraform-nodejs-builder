@@ -1,5 +1,7 @@
 FROM cimg/node:12.22.1
 LABEL maintainer=fulfillmentsquad@exagroup.biz
+LABEL repo=exaprint/terraform-nodejs-builder
+
 
 RUN echo "Install brew" \
     && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
